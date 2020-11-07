@@ -1,3 +1,4 @@
+package old_and_unrelevant;
 public class SmartNoiseDetector {
 	
 	boolean value;

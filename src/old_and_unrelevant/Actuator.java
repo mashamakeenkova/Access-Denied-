@@ -1,3 +1,4 @@
+package old_and_unrelevant;
 import old_and_unrelevant.Device;
 
 public class Actuator extends Device {
