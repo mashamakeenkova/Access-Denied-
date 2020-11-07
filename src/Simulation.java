@@ -19,22 +19,32 @@ public class Simulation {
     Map<String, Actuator> maps = new HashMap<String, Actuator>();
     
     if(identity.equals("sensor")) {
+    	//if input-guy decides they want a sensor
+    	
     	String name = lineScan.next();
+    	
     	if(lineScan.hasNext()) {
+    		//if Input-guy knows what he wants (or thinks he does)
     		String anInput = lineScan.next();
     		anInput = anInput.toLowerCase();
+    		
     		if(anInput.equals("boolean")) {
+    			//if input-guy decides the sensor has a bool-something something
     			boolean aBool = false;
     			Sensor sensor = new Sensor(name, aBool);
     	    	map.put(name, sensor);
     	    	System.out.println(identity + " called " + sensor.name + 
     	    			" has been made, and it has boolean attribute set to " + map.get(name).someBool);
     		}else {
+    			//if input-guy is too dumb to define a proper input
+    			//or if I am to dumb to handle it
     	    	Sensor sensor = new Sensor(name);
     	    	map.put(name, sensor);
     	    	System.out.println(identity + " called " + sensor.name + " has been made");
     	    	}
+    		
     	}else {
+    	//if Input-guy is just lost and typing weird s**t without attributes to set
     	Sensor sensor = new Sensor(name);
     	map.put(name, sensor);
     	System.out.println(identity + " called " + sensor.name + " has been made");
