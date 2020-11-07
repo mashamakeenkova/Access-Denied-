@@ -1,5 +1,9 @@
 
 public class Actuator {
-	DoorLock doorLock;
-	SmartLamp smartLamp;
+	String name;
+	String state;
+	
+	Actuator(String names){
+		name = names;
+	}
 }

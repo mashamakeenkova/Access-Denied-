@@ -10,24 +10,43 @@ public class Simulation {
 	Scanner scan = new Scanner(new File("Sensors_input.txt"));
 	
 	while (scan.hasNextLine()) {
+		
 	String line = scan.nextLine();
     Scanner lineScan = new Scanner(line);
     String identity = lineScan.next();
     identity = identity.toLowerCase();
     Map<String, Sensor> map = new HashMap<String, Sensor>();
+    Map<String, Actuator> maps = new HashMap<String, Actuator>();
     
     if(identity.equals("sensor")) {
-    	System.out.println(identity + " is being made...");
     	String name = lineScan.next();
-    	System.out.println(name);
+    	if(lineScan.hasNext()) {
+    		String anInput = lineScan.next();
+    		anInput = anInput.toLowerCase();
+    		if(anInput.equals("boolean")) {
+    			boolean aBool = false;
+    			Sensor sensor = new Sensor(name, aBool);
+    	    	map.put(name, sensor);
+    	    	System.out.println(identity + " called " + sensor.name + 
+    	    			" has been made, and it has boolean attribute set to " + map.get(name).someBool);
+    		}else {
+    	    	Sensor sensor = new Sensor(name);
+    	    	map.put(name, sensor);
+    	    	System.out.println(identity + " called " + sensor.name + " has been made");
+    	    	}
+    	}else {
     	Sensor sensor = new Sensor(name);
     	map.put(name, sensor);
     	System.out.println(identity + " called " + sensor.name + " has been made");
-    	System.out.println(map.get(name).name);
+    	}
     	
     }
     else if(identity.equals("actuator")) {
-    	System.out.println(identity);
+    	String name = lineScan.next();
+    	Actuator actuator = new Actuator(name);
+    	maps.put(name, actuator);
+    	System.out.println(identity + " called " + actuator.name + " has been made");
+    	
     }
     else {
     	System.out.println("make sure all your devices are either sensors or actuators and try again.");
