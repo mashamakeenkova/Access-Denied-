@@ -10,7 +10,7 @@ public class Simulation {
 		getActuators();
 	}
 		
-	private static void getActuators() throws FileNotFoundException{
+	private static Map<String, Actuator> getActuators() throws FileNotFoundException{
 		Scanner scan = new Scanner(new File("Actuators_input.txt"));
 		 
 	    Actuator[] acuDevices = new Actuator[scan.nextInt()];
@@ -73,11 +73,12 @@ public class Simulation {
 			    sensorMap.put( acuDevices[0].name, acuDevices[0] );
 			    System.out.println(sensorMap.get(acuDevices[0].name).name);
 			}
+		return sensorMap;
 		
 	}
 		
 
-	private static void getScanners() throws FileNotFoundException{
+	private static Map<String, Sensor> getScanners() throws FileNotFoundException{
 		
 		Scanner scan = new Scanner(new File("Sensors_input.txt"));   
 	    Sensor[] devices = new Sensor[scan.nextInt()];
@@ -139,6 +140,7 @@ public class Simulation {
 			    sensorMap.put( devices[i].name, devices[i] );
 			    System.out.println(sensorMap.get(devices[i].name).name);
 			}
+		return sensorMap;
 		
 	}
 }
