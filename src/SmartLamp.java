@@ -5,6 +5,7 @@ public class SmartLamp {
 	
 	public SmartLamp() {
 		state = 0.0;
+		
 	}
 	
 	public SmartLamp(double initial_state) {
