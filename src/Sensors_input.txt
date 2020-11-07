@@ -1,2 +1,3 @@
 Sensor MotionSensor Boolean {no motion, motion}
 Actuator MotionSensor Boolean {no motion, motion}
+Sensor MotionSensors Boolean {no motion, motion}

@@ -1,6 +1,10 @@
 
 public class Sensor {
-	MotionSensor motionSensor;
-	ProximitySensor proximitySensor;
-	SmartNoiseDetector smartNoiseDetector;
+	String name;
+	String variable;
+	
+	Sensor(String names){
+		name = names;
+	}
+	
 }
