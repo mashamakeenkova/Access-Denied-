@@ -8,7 +8,7 @@ public class Simulation {
 	public static void main(String[] args) throws FileNotFoundException {
 		
 	Scanner scan = new Scanner(new File("Sensors_input.txt"));
-	System.out.println("called");
+	
 	
 	//while (scan.hasNextLine()) {
 		
@@ -18,9 +18,10 @@ public class Simulation {
     //identity = identity.toLowerCase();
     
     
-    Device[] devices = new Device[scan.nextInt()];
+    Sensor[] devices = new Sensor[scan.nextInt()];
 	
-	 for(int i = 0; i < devices.length; i++) {
+	 for(int i = -1; i < devices.length; i++) {
+		 System.out.println("called");
 		 String line = scan.nextLine();
 		 Scanner lineScan = new Scanner(line);
 		 
@@ -31,24 +32,27 @@ public class Simulation {
 	    		
 	    	if(anInput.equals("sensor")) {
 	    		
+	    		
 	    		if(lineScan.hasNext()) {
 	    			String name = lineScan.next();
 	    	    	//if Input-guy knows what he wants (or thinks he does)
 	    	    	String variableType = lineScan.next();
 	    	    	anInput = anInput.toLowerCase();
+	    	    	variableType = variableType.toLowerCase();
+	    	    	
 	    		
 	    		if(variableType.equals("boolean")) {
 
 	    		//if input-guy decides the sensor has a bool-something something
 	    		boolean aBool = false;
 	    		Sensor sensor = new Sensor(name, aBool);
-	    		devices[i].sensor = sensor;
-	    	    System.out.println(anInput + " called " + devices[i].sensor.name);
-	    		}
+	    		devices[i] = sensor;
+	    	    System.out.println(anInput + " called " + devices[i].name);
 	    		}
 	    	}
+	    }
    
-		 }
+	}
 	 
 	}
 	}
