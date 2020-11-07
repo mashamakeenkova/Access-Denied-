@@ -6,19 +6,7 @@ public class RuleEngine {
 	
     public static void run(Map<String, Actuator> actuatorMap, Map<String, Sensor> sensorMap) throws FileNotFoundException{
         
-    	// it is assumed that all sensors and actuators have already been created
-    	// and that names of sensors/actuators are correct
-        
-    	// read input from file
-    	// input of the form: SensorName, attributeValue (boolean or double, i.e true/false or >/<double),
-        // ActuatorName, value (boolean, double)
-        // where SensorName, attributeValue is "if" and rest is statement
-        // trivial if attributeValue is boolean (if,else)
-        // what if attributeValue is a double? then we want to know if it is above or below
-        // a certain value -> add < or > before double value
-        
-        // what about multiple inputs/outputs?
-        
+    	// yes, this code is inside an infinite loop; please do not be afraid, everything is fine
     	while(true) {
     		Scanner fileInput = new Scanner(new File("RuleInput.txt"));
 
@@ -78,7 +66,7 @@ public class RuleEngine {
             	}
     			// CASE 2: sensor is double
             	// must start with either ">", "=" or "<"
-            	if (!valueS.startsWith(">") || !valueS.startsWith("=") || !valueS.startsWith("<")) {
+            	if (!(valueS.startsWith(">") || valueS.startsWith("=") || valueS.startsWith("<"))) {
             		System.out.println("Double value needs either <, = or > in front:\n  " + line);
             		scan_line.close();
             		return; // Error rip Fs in chat
