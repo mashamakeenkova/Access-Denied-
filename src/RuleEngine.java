@@ -34,10 +34,12 @@ public class RuleEngine {
 
             	// check if sensor and actuator have been initialized
             	if (!sensorMap.containsKey(sensor_name)) {
+            		System.out.println("Sensor has not been found:\n  " + line);
             		scan_line.close();
             		return; // Error 
             	}
             	if (!actuatorMap.containsKey(actuator_name)) {
+            		System.out.println("Actuator has not been found:\n  " + line);
             		scan_line.close();
             		return; // Error
             	}
@@ -77,7 +79,7 @@ public class RuleEngine {
     			// CASE 2: sensor is double
             	// must start with either ">", "=" or "<"
             	if (!valueS.startsWith(">") || !valueS.startsWith("=") || !valueS.startsWith("<")) {
-            		System.out.println("Double value needs either <, = or > in front:\n" + line);
+            		System.out.println("Double value needs either <, = or > in front:\n  " + line);
             		scan_line.close();
             		return; // Error rip Fs in chat
             	}
@@ -87,13 +89,13 @@ public class RuleEngine {
             		valueS_double = Double.parseDouble(valueS.substring(1,valueS.length()));
             	}
             	catch(NumberFormatException ex) {
-            		System.out.println("Argument is not a valid type:\n" + line);
+            		System.out.println("Argument is not a valid type:\n  " + line);
             		scan_line.close();
             		return; // Error
             	}
             	// check that sensor attribute is of type double
             	if (!sensor_type.equals("double")) {
-            		System.out.println("Sensor type is neither boolean nor double.");
+            		System.out.println("Sensor type is neither boolean nor double:\n  " + line);
             		scan_line.close();
             		return; // Error
             	}

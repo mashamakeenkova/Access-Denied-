@@ -77,8 +77,8 @@ public class Simulation {
 		 
 		 for( int i = 0; i < acuDevices.length; i++ ){
 			    System.out.println(i);
-			    sensorMap.put( acuDevices[0].name, acuDevices[0] );
-			    System.out.println(sensorMap.get(acuDevices[0].name).name);
+			    sensorMap.put( acuDevices[i].name, acuDevices[i] );
+			    System.out.println(sensorMap.get(acuDevices[i].name).name);
 			}
 		return sensorMap;
 		
