@@ -8,6 +8,7 @@ public class Simulation {
 	public static void main(String[] args) throws FileNotFoundException {
 		
 	Scanner scan = new Scanner(new File("Sensors_input.txt"));
+	System.out.println("called");
 	
 	//while (scan.hasNextLine()) {
 		
@@ -19,7 +20,7 @@ public class Simulation {
     
     Device[] devices = new Device[scan.nextInt()];
 	
-	 for(int i = -1; i < devices.length; i++) {
+	 for(int i = 0; i < devices.length; i++) {
 		 String line = scan.nextLine();
 		 Scanner lineScan = new Scanner(line);
 		 
