@@ -3,6 +3,7 @@ public class DoorLock {
 	
 	boolean state;
 	
+	
 	public DoorLock() {
 		state = false;
 	}
