@@ -2,4 +2,3 @@
 Sensor motionSensor Boolean True
 Sensor smartNoiseDetector Boolean 
 Sensor proximitySensor Int 
-
