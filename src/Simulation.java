@@ -6,8 +6,9 @@ import java.util.Scanner;
 
 public class Simulation {
 	public static void main(String[] args) throws FileNotFoundException {
-		getScanners();
-		getActuators();
+		Map<String, Actuator> actuatorMap = getActuators();
+		Map<String, Sensor> sensorMap = getScanners();
+		RuleEngine.run(actuatorMap, sensorMap);
 	}
 		
 	private static Map<String, Actuator> getActuators() throws FileNotFoundException{
@@ -38,11 +39,17 @@ public class Simulation {
 		    		
 		    		if(variableType.equals("boolean")) {
 
-		    		//if input-guy decides the sensor has a bool-something something
-		    		boolean aBool = false;
-		    		Actuator actuator = new Actuator(name, aBool);
-		    		acuDevices[i] = actuator;
-		    	    System.out.println(anInput + " called " + acuDevices[i].name);
+			    		//if input-guy decides the sensor has a bool-something something
+			    		boolean aBool = false;
+			    		
+			    		if(lineScan.hasNextBoolean()) {
+		    	    		//if Input-guy initialises the variable on the go
+		    	    		aBool = lineScan.nextBoolean();
+		    	    	}
+			    		
+			    		Actuator actuator = new Actuator(name, aBool);
+			    		acuDevices[i] = actuator;
+			    	    System.out.println(anInput + " called " + acuDevices[i].name);
 		    		}
 		    		else if(variableType.equals("double")||variableType.equals("int")) {
 
@@ -104,12 +111,18 @@ public class Simulation {
 		    	    	
 		    		
 		    		if(variableType.equals("boolean")) {
+		    			
+			    		boolean aBool = false;
 
-		    		//if input-guy decides the sensor has a bool-something something
-		    		boolean aBool = false;
-		    		Sensor sensor = new Sensor(name, aBool);
-		    		devices[i] = sensor;
-		    	    System.out.println(anInput + " called " + devices[i].name);
+			    		//if input-guy decides the sensor has a bool-something something
+
+			    		if(lineScan.hasNextBoolean()) {
+		    	    		//if Input-guy initialises the variable on the go
+		    	    		aBool = lineScan.nextBoolean();
+		    	    	}
+			    		Sensor sensor = new Sensor(name, aBool);
+			    		devices[i] = sensor;
+			    	    System.out.println(anInput + " called " + devices[i].name);
 		    		}
 		    		else if(variableType.equals("double")||variableType.equals("int")) {
 

@@ -1,0 +1,3 @@
+motionSensor true smartLamp 0.7
+smartNoiseDetector true doorLock false
+proximitySensor >0.9 doorLock false
