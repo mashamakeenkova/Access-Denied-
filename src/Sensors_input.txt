@@ -1,6 +1,4 @@
-5
-Sensor something1 Boolean 
-Sensor something3 Boolean 
-Sensor something4 Int 1
-Sensor something4.5 Double 1,0
-Sensor something5 Int 0
+3
+Sensor motionSensor Boolean 
+Sensor smartNoiseDetector Boolean 
+Sensor proximitySensor Int 
