@@ -1,5 +1,5 @@
 3
-Sensor motionSensor Boolean 
-Sensor smartNoiseDetector Boolean 
-Sensor proximitySensor Int 
+Sensor motionSensor boolean 
+Sensor smartNoiseDetector boolean 
+Sensor proximitySensor int 
 
