@@ -1,7 +1,7 @@
 
 public class Actuator extends Device {
 	String name;
-	String state;
+	String type;
 	boolean someBool;
 	double someDouble;
 	int someInt;
@@ -12,16 +12,16 @@ public class Actuator extends Device {
 	Actuator(String names, int someInt){
 		name = names;		
 		this.someInt = someInt;
-		this.state = "int";
+		this.type = "int";
 	}
 	Actuator(String names, boolean someBool){		
 		name = names;
 		this.someBool = someBool;
-		this.state = "boolean";
+		this.type = "boolean";
 	}
 	Actuator(String names, double someDouble){
 		name = names;
 		this.someDouble = someDouble;
-		this.state = "double";
+		this.type = "double";
 	}
 }
