@@ -41,27 +41,29 @@ public class RuleEngine {
     
     
         	// check value of sensor
-        	String sensor_value = "" + map.get(sensor_name).ATTRIBUTE
-        			// check if condition is true
-        			// CASE 1: valueS is boolean
-        			if (valueS.equals("true") || valueS.equals("false")) {
-        				if (sensor_value.equals(valueS)) {
-        					// change actuator value
-        					// actuator is boolean
-        					try {
-        						maps.get(actuator_name).ATTRIBUTE = Boolean.parseBoolean(valueA); continue;
-        					}
-        					catch(NumberFormatException ex) {}
-        					// actuator is double
-        					try {
-        						maps.get(actuator_name).ATTRIBUTE = Double.parseDouble(valueA); continue;
-        					}
-        					catch(NumberFormatException ex) {
-        						// not boolean AND not double
-        						return; // Error
-        					}
-        				}
-        			}
+        	String sensor_value = "" + map.get(sensor_name).ATTRIBUTE;
+        	
+			// check if condition is true
+			// CASE 1: valueS is boolean
+			if (valueS.equals("true") || valueS.equals("false")) {
+				if (sensor_value.equals(valueS)) {
+					// change actuator value
+					// actuator is boolean
+					try {
+						maps.get(actuator_name).ATTRIBUTE = Boolean.parseBoolean(valueA); continue;
+					}
+					catch(NumberFormatException ex) {}
+					// actuator is double
+					try {
+						maps.get(actuator_name).ATTRIBUTE = Double.parseDouble(valueA); continue;
+					}
+					catch(NumberFormatException ex) {
+						// not boolean AND not double
+						return; // Error
+					}
+				}
+			}
+        	
         	// CASE 2: valueS is double
         	// must start with either ">", "=" or "<"
         	if (!valueS.startsWith(">") || !valueS.startsWith("=") || !valueS.startsWith("<")) {
