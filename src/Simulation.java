@@ -71,5 +71,14 @@ public class Simulation {
 	}
 	 
 	}
+	 Map<String, Sensor> sensorMap = new HashMap<String, Sensor>();
+	 
+	 for( int i = 0; i < devices.length; i++ ){
+		    System.out.println(i);
+		    sensorMap.put( devices[i].name, devices[i] );
+		    System.out.println(sensorMap.get(devices[i].name).name);
+		}
+	 
+	 
 	}
 }

@@ -1,11 +1,6 @@
-10
-Sensor something1 Boolean {no motion, motion}
-Actuator Something2 Boolean {no motion, motion}
-Sensor something3 Boolean {no motion, motion}
+5
+Sensor something1 Boolean 
+Sensor something3 Boolean 
 Sensor something4 Int 1
 Sensor something4.5 Double 1,0
 Sensor something5 Int 0
-Sensor something6 bananas
-Sensor something7 Int 
-Actuator Something8 Boolean {no motion, motion}
-Actuator Something9 Boolean {no motion, motion}
