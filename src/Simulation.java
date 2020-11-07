@@ -7,78 +7,139 @@ import java.util.Scanner;
 public class Simulation {
 	public static void main(String[] args) throws FileNotFoundException {
 		
-	Scanner scan = new Scanner(new File("Sensors_input.txt"));
-	
-	
-	//while (scan.hasNextLine()) {
+		getScanners();
+		getActuators();
+	}
 		
-	//String line = scan.nextLine();
-    //Scanner lineScan = new Scanner(line);
-    //String identity = lineScan.next();
-    //identity = identity.toLowerCase();
-    
-    
-    Sensor[] devices = new Sensor[scan.nextInt()];
-	
-	 for(int i = -1; i < devices.length; i++) {
-		 System.out.println("called");
-		 String line = scan.nextLine();
-		 Scanner lineScan = new Scanner(line);
+	private static void getActuators() throws FileNotFoundException{
+		Scanner scan = new Scanner(new File("Actuators_input.txt"));
 		 
-		 if(lineScan.hasNext()) {
-	    	//if Input-guy knows what he wants (or thinks he does)
-	    	String anInput = lineScan.next();
-	    	anInput = anInput.toLowerCase();
-	    		
-	    	if(anInput.equals("sensor")) {
-	    		
-	    		
-	    		if(lineScan.hasNext()) {
-	    			String name = lineScan.next();
-	    	    	//if Input-guy knows what he wants (or thinks he does)
-	    	    	String variableType = lineScan.next();
-	    	    	anInput = anInput.toLowerCase();
-	    	    	variableType = variableType.toLowerCase();
-	    	    	
-	    		
-	    		if(variableType.equals("boolean")) {
-
-	    		//if input-guy decides the sensor has a bool-something something
-	    		boolean aBool = false;
-	    		Sensor sensor = new Sensor(name, aBool);
-	    		devices[i] = sensor;
-	    	    System.out.println(anInput + " called " + devices[i].name);
-	    		}
-	    		else if(variableType.equals("double")||variableType.equals("int")) {
+	    Actuator[] acuDevices = new Actuator[scan.nextInt()];
+		
+		 for(int i = -1; i < acuDevices.length; i++) {
+			 
+			 String line = scan.nextLine();
+			 Scanner lineScan = new Scanner(line);
+			 
+			 if(lineScan.hasNext()) {
+		    	//if Input-guy knows what he wants (or thinks he does)
+		    	String anInput = lineScan.next();
+		    	anInput = anInput.toLowerCase();
+		    		
+		    	if(anInput.equals("actuator")) {
+		    		
+		    		
+		    		if(lineScan.hasNext()) {
+		    			String name = lineScan.next();
+		    	    	//if Input-guy knows what he wants (or thinks he does)
+		    	    	String variableType = lineScan.next();
+		    	    	anInput = anInput.toLowerCase();
+		    	    	variableType = variableType.toLowerCase();
+		    	    	
+		    		
+		    		if(variableType.equals("boolean")) {
 
 		    		//if input-guy decides the sensor has a bool-something something
-		    		double aDouble = 0.0;
-		    		
-		    		if(lineScan.hasNextDouble()) {
-	    	    		//if Input-guy initialises the variable on the go
-	    	    		double firstDouble = lineScan.nextDouble();
-	    	    		aDouble = firstDouble;
-	    	    		}
-
-		    		Sensor sensor = new Sensor(name, aDouble);
-		    		devices[i] = sensor;
-		    	    System.out.println(anInput + " called " + devices[i].name + "with value " + devices[i].someDouble);
-		    	    
+		    		boolean aBool = false;
+		    		Actuator actuator = new Actuator(name, aBool);
+		    		acuDevices[i] = actuator;
+		    	    System.out.println(anInput + " called " + acuDevices[i].name);
 		    		}
-	    	}
-	    }
-   
-	}
-	 
-	}
-	 Map<String, Sensor> sensorMap = new HashMap<String, Sensor>();
-	 
-	 for( int i = 0; i < devices.length; i++ ){
-		    System.out.println(i);
-		    sensorMap.put( devices[i].name, devices[i] );
-		    System.out.println(sensorMap.get(devices[i].name).name);
+		    		else if(variableType.equals("double")||variableType.equals("int")) {
+
+			    		//if input-guy decides the sensor has a bool-something something
+			    		double aDouble = 0.0;
+			    		
+			    		if(lineScan.hasNextDouble()) {
+		    	    		//if Input-guy initialises the variable on the go
+		    	    		double firstDouble = lineScan.nextDouble();
+		    	    		aDouble = firstDouble;
+		    	    		}
+
+			    		Actuator actuator = new Actuator(name, aDouble);
+			    		acuDevices[i] = actuator;
+			    	    System.out.println(anInput + " called " + acuDevices[i].name + "with value " + acuDevices[i].someDouble);
+			    	    
+			    		}
+		    		}
+		    	}
+	   
+			 }
+		 
 		}
-	 
-	 
+		 Map<String, Actuator> sensorMap = new HashMap<String, Actuator>();
+		 
+		 for( int i = 0; i < acuDevices.length; i++ ){
+			    System.out.println(i);
+			    sensorMap.put( acuDevices[i].name, acuDevices[i] );
+			    System.out.println(sensorMap.get(acuDevices[i].name).name);
+			}
+		
+	}
+		
+
+	private static void getScanners() throws FileNotFoundException{
+		
+		Scanner scan = new Scanner(new File("Sensors_input.txt"));   
+	    Sensor[] devices = new Sensor[scan.nextInt()];
+		
+		 for(int i = -1; i < devices.length; i++) {
+			 String line = scan.nextLine();
+			 Scanner lineScan = new Scanner(line);
+			 
+			 if(lineScan.hasNext()) {
+		    	//if Input-guy knows what he wants (or thinks he does)
+		    	String anInput = lineScan.next();
+		    	anInput = anInput.toLowerCase();
+		    		
+		    	if(anInput.equals("sensor")) {
+		    		
+		    		
+		    		if(lineScan.hasNext()) {
+		    			String name = lineScan.next();
+		    	    	//if Input-guy knows what he wants (or thinks he does)
+		    	    	String variableType = lineScan.next();
+		    	    	anInput = anInput.toLowerCase();
+		    	    	variableType = variableType.toLowerCase();
+		    	    	
+		    		
+		    		if(variableType.equals("boolean")) {
+
+		    		//if input-guy decides the sensor has a bool-something something
+		    		boolean aBool = false;
+		    		Sensor sensor = new Sensor(name, aBool);
+		    		devices[i] = sensor;
+		    	    System.out.println(anInput + " called " + devices[i].name);
+		    		}
+		    		else if(variableType.equals("double")||variableType.equals("int")) {
+
+			    		//if input-guy decides the sensor has a bool-something something
+			    		double aDouble = 0.0;
+			    		
+			    		if(lineScan.hasNextDouble()) {
+		    	    		//if Input-guy initialises the variable on the go
+		    	    		double firstDouble = lineScan.nextDouble();
+		    	    		aDouble = firstDouble;
+		    	    		}
+
+			    		Sensor sensor = new Sensor(name, aDouble);
+			    		devices[i] = sensor;
+			    	    System.out.println(anInput + " called " + devices[i].name + "with value " + devices[i].someDouble);
+			    	    
+			    		}
+		    	}
+		    }
+	   
+		}
+		 
+		}
+		 Map<String, Sensor> sensorMap = new HashMap<String, Sensor>();
+		 
+		 for( int i = 0; i < devices.length; i++ ){
+			    System.out.println(i);
+			    sensorMap.put( devices[i].name, devices[i] );
+			    System.out.println(sensorMap.get(devices[i].name).name);
+			}
+		
 	}
 }
