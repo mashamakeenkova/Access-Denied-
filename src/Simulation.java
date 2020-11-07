@@ -35,7 +35,36 @@ public class Simulation {
     	    	map.put(name, sensor);
     	    	System.out.println(identity + " called " + sensor.name + 
     	    			" has been made, and it has boolean attribute set to " + map.get(name).someBool);
-    		}else {
+    		}
+    		
+    		else if(anInput.equals("int")) {
+    			//if input-guy decides the sensor has a int-something something
+    			int aInt = 0;
+    	    	if(lineScan.hasNextInt()) {
+    	    		//if Input-guy initialises the variable on the go
+    	    		int firstInt = lineScan.nextInt();
+    	    		aInt = firstInt;
+    	    		}
+    	    	Sensor sensor = new Sensor(name, aInt);
+    	    	map.put(name, sensor);
+    	    	System.out.println(identity + " called " + sensor.name + " has been made, and it has integer attribute set to " + map.get(name).someInt);
+    		}
+    		
+    		else if(anInput.equals("double")) {
+    			//if input-guy decides the sensor has a int-something something
+    			double aDouble = 0.0; 
+    	    	if(lineScan.hasNextDouble()) {
+    	    		//if Input-guy initialises the variable on the go
+    	    		System.out.println("Huston, we have a double");
+    	    		double firstDouble = lineScan.nextDouble();
+    	    		aDouble = firstDouble;
+    	    		}
+    	    	Sensor sensor = new Sensor(name, aDouble);
+    	    	map.put(name, sensor);
+    	    	System.out.println(identity + " called " + sensor.name + " has been made, and it has double attribute set to " + map.get(name).someInt);
+    		}
+    		
+    		else {
     			//if input-guy is too dumb to define a proper input
     			//or if I am to dumb to handle it
     	    	Sensor sensor = new Sensor(name);
@@ -61,6 +90,8 @@ public class Simulation {
     else {
     	System.out.println("make sure all your devices are either sensors or actuators and try again.");
     }
+    
+    
     
 	}
 	}
