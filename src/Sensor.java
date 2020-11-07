@@ -14,7 +14,7 @@ public class Sensor extends Device {
 	Sensor(String names, int anInt){
 		name = names;
 		someInt = anInt;
-		type = "int";
+		type = "double";
 	}
 	Sensor(String names, boolean aBool){
 		name = names;

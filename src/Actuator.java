@@ -12,7 +12,7 @@ public class Actuator extends Device {
 	Actuator(String names, int someInt){
 		name = names;		
 		this.someInt = someInt;
-		this.type = "int";
+		this.type = "double";
 	}
 	Actuator(String names, boolean someBool){		
 		name = names;
