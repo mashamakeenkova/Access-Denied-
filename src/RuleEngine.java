@@ -6,19 +6,7 @@ public class RuleEngine {
 	
     public static void run(Map<String, Actuator> actuatorMap, Map<String, Sensor> sensorMap) throws FileNotFoundException{
         
-    	// it is assumed that all sensors and actuators have already been created
-    	// and that names of sensors/actuators are correct
-        
-    	// read input from file
-    	// input of the form: SensorName, attributeValue (boolean or double, i.e true/false or >/<double),
-        // ActuatorName, value (boolean, double)
-        // where SensorName, attributeValue is "if" and rest is statement
-        // trivial if attributeValue is boolean (if,else)
-        // what if attributeValue is a double? then we want to know if it is above or below
-        // a certain value -> add < or > before double value
-        
-        // what about multiple inputs/outputs?
-        
+    	// yes, this code is inside an infinite loop; please do not be afraid, everything is fine
     	while(true) {
     		Scanner fileInput = new Scanner(new File("RuleInput.txt"));
 
@@ -34,10 +22,12 @@ public class RuleEngine {
 
             	// check if sensor and actuator have been initialized
             	if (!sensorMap.containsKey(sensor_name)) {
+            		System.out.println("Sensor has not been found:\n  " + line);
             		scan_line.close();
             		return; // Error 
             	}
             	if (!actuatorMap.containsKey(actuator_name)) {
+            		System.out.println("Actuator has not been found:\n  " + line);
             		scan_line.close();
             		return; // Error
             	}
@@ -76,8 +66,8 @@ public class RuleEngine {
             	}
     			// CASE 2: sensor is double
             	// must start with either ">", "=" or "<"
-            	if (!valueS.startsWith(">") || !valueS.startsWith("=") || !valueS.startsWith("<")) {
-            		System.out.println("Double value needs either <, = or > in front:\n" + line);
+            	if (!(valueS.startsWith(">") || valueS.startsWith("=") || valueS.startsWith("<"))) {
+            		System.out.println("Double value needs either <, = or > in front:\n  " + line);
             		scan_line.close();
             		return; // Error rip Fs in chat
             	}
@@ -87,13 +77,13 @@ public class RuleEngine {
             		valueS_double = Double.parseDouble(valueS.substring(1,valueS.length()));
             	}
             	catch(NumberFormatException ex) {
-            		System.out.println("Argument is not a valid type:\n" + line);
+            		System.out.println("Argument is not a valid type:\n  " + line);
             		scan_line.close();
             		return; // Error
             	}
             	// check that sensor attribute is of type double
             	if (!sensor_type.equals("double")) {
-            		System.out.println("Sensor type is neither boolean nor double.");
+            		System.out.println("Sensor type is neither boolean nor double:\n  " + line);
             		scan_line.close();
             		return; // Error
             	}
