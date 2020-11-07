@@ -48,16 +48,22 @@ public class Simulation {
 	    		Sensor sensor = new Sensor(name, aBool);
 	    		devices[i] = sensor;
 	    	    System.out.println(anInput + " called " + devices[i].name);
-	    	    System.out.println(" A something called " + devices[0].name);
 	    		}
-	    		else if(variableType.equals("double")) {
+	    		else if(variableType.equals("double")||variableType.equals("int")) {
 
 		    		//if input-guy decides the sensor has a bool-something something
 		    		double aDouble = 0.0;
+		    		
+		    		if(lineScan.hasNextDouble()) {
+	    	    		//if Input-guy initialises the variable on the go
+	    	    		double firstDouble = lineScan.nextDouble();
+	    	    		aDouble = firstDouble;
+	    	    		}
+
 		    		Sensor sensor = new Sensor(name, aDouble);
 		    		devices[i] = sensor;
-		    	    System.out.println(anInput + " called " + devices[i].name);
-		    	    System.out.println(" A something called " + devices[0].name);
+		    	    System.out.println(anInput + " called " + devices[i].name + "with value " + devices[i].someDouble);
+		    	    
 		    		}
 	    	}
 	    }
