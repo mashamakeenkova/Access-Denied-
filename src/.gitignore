@@ -8,3 +8,7 @@
 /SwissFlag.class
 /SmartNoiseDetector.class
 /Simulation.class
+/ProximitySesor.class
+/Device.class
+/Sensor.class
+/Actuator.class
