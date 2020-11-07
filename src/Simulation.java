@@ -48,7 +48,17 @@ public class Simulation {
 	    		Sensor sensor = new Sensor(name, aBool);
 	    		devices[i] = sensor;
 	    	    System.out.println(anInput + " called " + devices[i].name);
+	    	    System.out.println(" A something called " + devices[0].name);
 	    		}
+	    		else if(variableType.equals("double")) {
+
+		    		//if input-guy decides the sensor has a bool-something something
+		    		double aDouble = 0.0;
+		    		Sensor sensor = new Sensor(name, aDouble);
+		    		devices[i] = sensor;
+		    	    System.out.println(anInput + " called " + devices[i].name);
+		    	    System.out.println(" A something called " + devices[0].name);
+		    		}
 	    	}
 	    }
    
