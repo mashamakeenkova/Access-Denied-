@@ -1,5 +1,6 @@
 
-public class Sensor {
+
+public class Sensor extends Device {
 	String name;
 	String type;
 	int someInt;

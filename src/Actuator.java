@@ -1,24 +1,27 @@
 
-public class Actuator {
+public class Actuator extends Device {
 	String name;
 	String state;
 	boolean someBool;
 	double someDouble;
 	int someInt;
 	
+	Actuator(String names){
+		name = names;			
+	}
 	Actuator(String names, int someInt){
 		name = names;		
 		this.someInt = someInt;
-		this.type = "int";
+		this.state = "int";
 	}
 	Actuator(String names, boolean someBool){		
 		name = names;
 		this.someBool = someBool;
-		this.type = "boolean";
+		this.state = "boolean";
 	}
 	Actuator(String names, double someDouble){
 		name = names;
 		this.someDouble = someDouble;
-		this.type = "double";
+		this.state = "double";
 	}
 }
